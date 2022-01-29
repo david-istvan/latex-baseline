@@ -1,0 +1,56 @@
+\documentclass{article}
+\input{preamble}
+
+\title{latex-baseline}
+\author{
+    \ifthenelse{\boolean{shownames}}%
+    {Istvan David}%
+    {Anonymous author(s)}%
+}
+\date{January 2022}
+
+\begin{document}
+
+\maketitle
+
+\section{Commands}
+
+\subsection{Frequently used annotations}
+
+\begin{itemize}
+    \item This is normal text.
+    \item \todo{This is a todo.}
+    \item \todo{} (Empty todo label.)
+    \item \assignedto{Steve}
+\end{itemize}
+
+\subsection{Review commands}
+
+\begin{itemize}
+    \item \rephrase{Should be rephrased}
+    \item \id{This is my comment with my initials}
+\end{itemize}
+
+\subsection{Revision annotations}
+
+\begin{itemize}
+    \item \rem{Text removed.}
+    \item \add{Text added.}
+    \item \rep{Text replaced.}{New text.}
+\end{itemize}
+
+Some journals require submitting camera-ready revisions, but attaching the annotated version is advisable to enable traceability between the rebuttal and the revised manuscript, thus expiding things. Change the \verb|\setboolean{showannotations}{true}| setting to \verb|\setboolean{showannotations}{false}| to hide \verb|\add{}|, \verb|\rem{}| and \verb|\rep{}| annotations and produce the final version.
+
+\subsection{Anonymize paper for double blind reviews}
+Replace \verb|\author{Steve}| with the following:
+\begin{verbatim}
+\author{
+    \ifthenelse{\boolean{shownames}}%
+    {Steve}%
+    {Anonymous author(s)}%
+}
+\end{verbatim}
+
+Use this block for other sensitive information. Change the \verb|\setboolean{shownames}{true}| setting to \verb|\setboolean{shownames}{false}|.
+
+\end{document}

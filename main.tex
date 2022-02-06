@@ -4,8 +4,8 @@
 \title{latex-baseline}
 \author{
     \ifthenelse{\boolean{shownames}}%
-    {Istvan David}%
-    {Anonymous author(s)}%
+    {Istvan David \id{The name is shown if the "shownames" option is set to true}}%
+    {Anonymous author(s) \id{Authors are anonymized if the "shownames" option is set to false}}%
 }
 \date{January 2022}
 
@@ -13,7 +13,51 @@
 
 \maketitle
 
-\section{Commands}
+\section{Structure}
+\begin{itemize}
+    \item \verb|Preamble|
+    \begin{itemize}
+        \item \verb|packages.tex|: packages are imported here.
+        \item \verb|commands.tex|: commands are defined here.
+        \item \verb|settings.tex|: settings are defined here.
+    \end{itemize}
+\end{itemize}
+
+\section{Settings}
+
+The settings can be updated in the \verb|settings.tex| file.
+
+\subsection{Margins}
+Update \verb|\usepackage[margin=1in, top = 1in, bottom = 0.8in, headheight = 0.3in]{geometry}| as needed.
+
+Update \verb|\setlength\parindent{0pt}| as needed.
+
+
+\subsection{Anonymize paper for double blind reviews}
+Replace \verb|\author{Steve}| with the following:
+\begin{verbatim}
+\author{
+    \ifthenelse{\boolean{shownames}}%
+    {Steve}%
+    {Anonymous author(s)}%
+}
+\end{verbatim}
+
+Use this block for other sensitive information. Change the \verb|\setboolean{shownames}{true}| setting to \verb|\setboolean{shownames}{false}|.
+
+\subsection{Colors}
+
+The commands in \secref{sec:commands} often use colors. These can be changed by modifying the following settings.
+\begin{itemize}
+    \item \verb|\newcommand{\newtextcolor}{blue}| -- sets the color of the added text annotations.
+    \item \verb|\newcommand{\assignementcolor}{blue}| -- sets the color of the assignment annotations.
+\end{itemize}
+
+
+
+
+
+\section{Commands}\label{sec:commands}
 
 \subsection{Frequently used annotations}
 
@@ -41,16 +85,5 @@
 
 Some journals require submitting camera-ready revisions, but attaching the annotated version is advisable to enable traceability between the rebuttal and the revised manuscript, thus expiding things. Change the \verb|\setboolean{showannotations}{true}| setting to \verb|\setboolean{showannotations}{false}| to hide \verb|\add{}|, \verb|\rem{}| and \verb|\rep{}| annotations and produce the final version.
 
-\subsection{Anonymize paper for double blind reviews}
-Replace \verb|\author{Steve}| with the following:
-\begin{verbatim}
-\author{
-    \ifthenelse{\boolean{shownames}}%
-    {Steve}%
-    {Anonymous author(s)}%
-}
-\end{verbatim}
-
-Use this block for other sensitive information. Change the \verb|\setboolean{shownames}{true}| setting to \verb|\setboolean{shownames}{false}|.
 
 \end{document}

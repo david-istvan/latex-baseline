@@ -34,14 +34,18 @@
 %%%%%%%%%%%%%%%%%%% Revision commands %%%%%%%%%%%%%%%%%%%
 \newcommand{\rem}[1]{%
     \ifthenelse{\boolean{showannotations}}%
-    {\textcolor{red}{\st{#1}}}%
+    {\textcolor{\oldtextcolor}{\st{#1}}}%
     {}%
 }
 
 \newcommand\add[1]{%
     \ifthenelse{\boolean{showannotations}}%
-    {\textcolor{\newtextcolor}{{\textbf{#1}}}}%
+    {\color{\newtextcolor}{{#1}}}%
     {#1}%
 }
 
-\newcommand\rep[2]{\rem{#1}\add{#2}}
+\newcommand\rep[2]{%
+    \ifthenelse{\boolean{showannotations}}%
+    {\rem{#1}~\add{#2}}%
+    {#2}%
+}

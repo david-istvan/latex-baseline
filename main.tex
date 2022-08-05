@@ -73,6 +73,7 @@ The commands in \secref{sec:commands} often use colors. These can be changed by 
 \begin{itemize}
     \item \rephrase{Should be rephrased}
     \item \id{This is my comment with my initials}
+    \item \hl{This is a highlighting from the \texttt{soul} package for anything else.}
 \end{itemize}
 
 \subsection{Revision annotations}
@@ -81,6 +82,8 @@ The commands in \secref{sec:commands} often use colors. These can be changed by 
     \item \rem{Text removed.}
     \item \add{Text added.}
     \item \rep{Text replaced.}{New text.}
+    \item \add{The \texttt{\textbackslash add\{\}} command does not also support multiple paragraphs.}
+    
 \end{itemize}
 
 Some journals require submitting camera-ready revisions, but attaching the annotated version is advisable to enable traceability between the rebuttal and the revised manuscript, thus expiding things. Change the \verb|\setboolean{showannotations}{true}| setting to \verb|\setboolean{showannotations}{false}| to hide \verb|\add{}|, \verb|\rem{}| and \verb|\rep{}| annotations and produce the final version.

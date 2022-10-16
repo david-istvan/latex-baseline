@@ -10,26 +10,33 @@
 %%%%%%%%%%%%%%%%%%% Frequently used annotations %%%%%%%%%%%%%%%%%%%
 
 \newcommand{\todo}[1]{
-    \ifthenelse{\equal{#1}{}}{\textcolor{red}{TODO}}{\textcolor{red}{TODO:~{#1}}}
+    \ifthenelse{\boolean{showannotations}}%
+    {\ifthenelse{\equal{#1}{}}{\textcolor{red}{TODO}}{\textcolor{red}{TODO:~{#1}}}}%
+    {}%
 }
 
 \newcommand{\assignedto}[1]{%
-    \textbf{%
-        \noindent\ding{46}\textcolor{white}{~\colorbox{\assignementcolor}{%
-            Assigned to:}}~\textcolor{\assignementcolor}{#1}\\%
-    }%
+    \ifthenelse{\boolean{showannotations}}%
+    {\textbf{\noindent\ding{46}\textcolor{white}{~\colorbox{\assignementcolor}{Assigned to:}}~\textcolor{\assignementcolor}{#1}\\}%
+    }
+    {}
 }
 
 %%%%%%%%%%%%%%%%%%% Review commands %%%%%%%%%%%%%%%%%%%
 
 \newcommand{\rephrase}[1]{\textcolor{purple}{\uwave{#1}}} % please rephrase
 
-\renewcommand{\nb}[2]{
-	\fcolorbox{gray}{yellow}{\bfseries\sffamily\scriptsize#1}
-	{\sf\small$\blacktriangleright$\textit{#2}$\blacktriangleleft$}
+\renewcommand{\nb}[4]{
+    \ifthenelse{\boolean{showannotations}}%
+    {\fcolorbox{gray}{#2}{\bfseries\sffamily\scriptsize{#1}}
+	{\sf\small$\blacktriangleright$\textcolor{#4}{\textit{#3}}$\blacktriangleleft$}}%
+    {}%
 }
 
-\newcommand\id[1]{\noindent\nb{ID}{\textcolor{red}{#1}}}
+\newcommand\personmarker[2]{\noindent\nb{#1}{yellow}{#2}{VioletRed}}
+\newcommand\id[1]{\noindent\personmarker{ID}{#1}}
+
+\newcommand\re[2]{\noindent\nb{#1}{YellowOrange}{#2}{RubineRed}}
 
 %%%%%%%%%%%%%%%%%%% Revision commands %%%%%%%%%%%%%%%%%%%
 \newcommand{\rem}[1]{%

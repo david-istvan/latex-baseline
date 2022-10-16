@@ -73,6 +73,7 @@ The commands in \secref{sec:commands} often use colors. These can be changed by 
 \begin{itemize}
     \item \rephrase{Should be rephrased}
     \item \id{This is my comment with my initials}
+    \item \re{R1.01}{This marks a comment related to a reviewer's specific remark}
     \item \hl{This is a highlighting from the \texttt{soul} package for anything else.}
 \end{itemize}
 
@@ -82,12 +83,12 @@ The commands in \secref{sec:commands} often use colors. These can be changed by 
     \item \rem{Text removed.}
     \item \add{Text added.}
     \item \rep{Text replaced.}{New text.}
-    \item \add{The \texttt{\textbackslash add\{\}} command does not support multiple paragraphs.}
+    \item \rem{Text with a reference{~\cite{bostrom2003are}} removed. -- Use braces around \texttt{$\sim$\textbackslash cite}.}
+    \item \add{The \texttt{\textbackslash add\{\}} command does \textbf{NOT} support multiple paragraphs.}
     
 \end{itemize}
 
 Some journals require submitting camera-ready revisions, but attaching the annotated version is advisable to enable traceability between the rebuttal and the revised manuscript, thus expiding things. Change the \verb|\setboolean{showannotations}{true}| setting to \verb|\setboolean{showannotations}{false}| to hide \verb|\add{}|, \verb|\rem{}| and \verb|\rep{}| annotations and produce the final version.
-
 
 \bibliographystyle{ieeetr}
 \bibliography{bib/references}

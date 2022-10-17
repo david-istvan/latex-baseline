@@ -66,3 +66,11 @@
     \put(\LenToUnit{#1\paperwidth},\LenToUnit{#2\paperheight}){\vtop{{\null}\makebox[0pt][c]{#3}}}%
   }%
 }%
+
+\newcommand{\preprintlabel}[2]{
+    \placetextbox{0.5}{0.99}{\colorbox{gray!10}{\textcolor{WildStrawberry}{\textbf{{#2}}}}}%
+
+    \placetextbox{0.5}{0.97}{\colorbox{gray!10}{\textcolor{WildStrawberry}{\textbf{Author pre-print. The final publication is available at: \url{https://doi.org/{#1}}.}}}}%
+    
+    \placetextbox{0.5}{0.05}{\colorbox{gray!10}{\textcolor{WildStrawberry}{\textbf{Author pre-print. The final publication is available at: \url{https://doi.org/{#1}}.}}}}%
+}

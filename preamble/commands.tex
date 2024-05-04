@@ -22,6 +22,8 @@
     {}
 }
 
+\newcommand{\hsep}{\par\noindent\rule{\textwidth}{0.5pt}}
+
 %%%%%%%%%%%%%%%%%%% Review commands %%%%%%%%%%%%%%%%%%%
 
 \newcommand{\rephrase}[1]{\textcolor{purple}{\uwave{#1}}} % please rephrase
@@ -51,13 +53,23 @@
     {#1}%
 }
 
+\newcommand\addblockbegin{%
+    \ifthenelse{\boolean{showannotations}}%
+    {\color{\newtextcolor}}%
+    {}%
+}
+
+\newcommand\addblockend{%
+    \ifthenelse{\boolean{showannotations}}%
+    {\color{black}}%
+    {}%
+}
+
 \newcommand\rep[2]{%
     \ifthenelse{\boolean{showannotations}}%
     {\rem{#1}~\add{#2}}%
     {#2}%
 }
-
-
 
 %%%%%%%%%%%%%%%%%%% Preprint info commands %%%%%%%%%%%%%%%%%%%
 \newcommand{\placetextbox}[3]{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}

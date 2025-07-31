@@ -9,7 +9,7 @@
 
 %%%%%%%%%%%%%%%%%%% Frequently used annotations %%%%%%%%%%%%%%%%%%%
 
-\newcommand{\todo}[1]{
+\newcommand{\TODO}[1]{
     \ifthenelse{\boolean{showannotations}}%
     {\ifthenelse{\equal{#1}{}}{\textcolor{red}{TODO}}{\textcolor{red}{TODO:~{#1}}}}%
     {}%
@@ -80,9 +80,9 @@
 }%
 
 \newcommand{\preprintlabel}[2]{
-    \placetextbox{0.5}{0.99}{\colorbox{gray!10}{\textcolor{WildStrawberry}{\textbf{{#2}}}}}%
+    \placetextbox{0.5}{0.99}{\colorbox{gray!3}{\textcolor{WildStrawberry}{{{#2}}}}}%
 
-    \placetextbox{0.5}{0.97}{\colorbox{gray!10}{\textcolor{WildStrawberry}{\textbf{Author pre-print. The final publication is available at: \url{https://doi.org/#1}.}}}}%
+    \placetextbox{0.5}{0.97}{\colorbox{gray!3}{\textcolor{WildStrawberry}{Author pre-print. The final publication is available at: \url{https://doi.org/#1}.}}}%
     
-    \placetextbox{0.5}{0.05}{\colorbox{gray!10}{\textcolor{WildStrawberry}{\textbf{Author pre-print. The final publication is available at: \url{https://doi.org/#1}.}}}}%
+    \placetextbox{0.5}{0.05}{\colorbox{gray!3}{\textcolor{WildStrawberry}{Author pre-print. The final publication is available at: \url{https://doi.org/#1}.}}}%
 }

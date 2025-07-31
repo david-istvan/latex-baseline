@@ -2,16 +2,13 @@
 \input{preamble}
 
 \title{latex-baseline}
-\author{
-    \ifthenelse{\boolean{shownames}}%
-    {Istvan David \id{The name is shown if the "shownames" option is set to true}}%
-    {Anonymous author(s) \id{Authors are anonymized if the "shownames" option is set to false}}%
-}
+\author{Istvan David}
 \date{April 2024}
 
 \begin{document}
 
-\preprintlabel{xx.xxxx/xxxx}{Here's an example of pre-print labeling. Use the \textbackslash\texttt{preprintlabel} command.}
+\preprintlabel{xx.xxxx/xxxx}{\textbf{Here's an example of pre-print labeling. Use the \textbackslash\texttt{preprintlabel} command.}}
+
 
 \maketitle
 
@@ -65,8 +62,8 @@ The commands in \secref{sec:commands} often use colors. These can be changed by 
 
 \begin{itemize}
     \item This is normal text.
-    \item \todo{This is a todo.}
-    \item \todo{} (Empty todo label.)
+    \item \TODO{This is a todo.}
+    \item \TODO{} (Empty todo label.)
     \item \assignedto{Steve}
 \end{itemize}
 
@@ -99,7 +96,22 @@ The commands in \secref{sec:commands} often use colors. These can be changed by 
 
 Some journals require submitting camera-ready revisions, but attaching the annotated version is advisable to enable traceability between the rebuttal and the revised manuscript, thus expiding things. Change the \verb|\setboolean{showannotations}{true}| setting to \verb|\setboolean{showannotations}{false}| to hide \verb|\add{}|, \verb|\rem{}| and \verb|\rep{}| annotations and produce the final version.
 
-\bibliographystyle{ieeetr}
+
+\subsection{Enumitem is loaded}
+
+\begin{itemize}[noitemsep,topsep=0pt]
+    \item Use \verb|\begin{itemize}[noitemsep,topsep=0pt]| for listst with a dense layout.
+\end{itemize}
+
+\subsection{Citing}
+
+Natbib is loaded.
+\begin{itemize}
+    \item Use \verb|\citep{}| or \verb|\cite{}| for regular citations: \cite{bostrom2003are}.
+    \item Use \verb|\citet{}| for author name citations: \citet{bostrom2003are}.
+\end{itemize}
+
+\bibliographystyle{IEEEtranN}
 \bibliography{bib/references}
 
 \end{document}
